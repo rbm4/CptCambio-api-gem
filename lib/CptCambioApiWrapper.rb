@@ -48,23 +48,33 @@ module CptCambioApiWrapper
           doRequest
         end
         
-        def self.cancel_order
+        def self.cancel_order(id)
           @method = 'cancel_order'
+          @params[:id] = id
           doRequest
         end
         
-        def self.list_deposits
+        def self.list_deposits(limit=25)
           @method = 'list_deposits'
+          @params[:limit] = limit
           doRequest
         end
         
-        def self.list_withdrawals
+        def self.list_withdrawals(limit=25)
           @method = 'list_withdrawals'
+          @params[:limit] = limit
           doRequest
         end
         
-        def self.list_history
+        def self.list_history(limit=25,pair="LTC/BTC")
           @method = 'list_history'
+          @params[:limit] = limit
+          @params[:pair] = pair
+          doRequest
+        end
+        
+        def self.get_pairs
+          @method = 'list_pairs'
           doRequest
         end
         
