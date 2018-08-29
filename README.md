@@ -21,21 +21,53 @@ Or install it yourself as:
     $ gem install CptCambioApiWrapper
 
 ## Usage
-To use this 
-Init the gem within a variable using your API keys:
+To use this the gem, initialize within a variable using your API keys, this method will mount for you a object wich will communicate with the API:
 
     client = CptCambioApiWrapper.init(key,secret)
-    init
+    
+Then you can use the operational methods
 
-## Development
+## User Info
+Returns a JSON with the client's user information
 
-After checking out the repo, run `bin/setup` to install dependencies. Then, run `rake spec` to run the tests. You can also run `bin/console` for an interactive prompt that will allow you to experiment.
+    client.userInfo
+    
+## Instant buy price
+Returns the actual price for buy/sell current open orders, given a pair and type ("buy","sell").
 
-To install this gem onto your local machine, run `bundle exec rake install`. To release a new version, update the version number in `version.rb`, and then run `bundle exec rake release`, which will create a git tag for the version, push git commits and tags, and push the `.gem` file to [rubygems.org](https://rubygems.org).
+    client.instant_buy_price(currency1, currency2, type)
+    client.instant_buy_price("DOGE", "BTC", "sell")
+    
+## List Orders
+Returns a json with the user orders
+
+    client.limit(limit)
+    client.limit(100)
+    
+## Send order
+Send an order, given pair, amount, price and type(buy / sell), return the JSON of the current open order
+
+    client.send_order(pair,amount,price,type)
+    client.send_order("DOGE/BTC",0.002,0.00000033,"buy")
+    
+    
+## Cancel order
+Cancel a given order by ID
+
+    client.cancel_order(id)
+    
+## List deposits
+Lists que user's deposit history limited to 100 maximum
+
+    client.list_history(limit)
+
+## List Withdrawals
+
+    client.list_withdrawals(limit)
 
 ## Contributing
 
-Bug reports and pull requests are welcome on GitHub at https://github.com/[USERNAME]/CptCambioApiWrapper. This project is intended to be a safe, welcoming space for collaboration, and contributors are expected to adhere to the [Contributor Covenant](http://contributor-covenant.org) code of conduct.
+Bug reports and pull requests are welcome on GitHub at https://github.com/rbm4/CptCambio-api-gem. This project is intended to be a safe, welcoming space for collaboration, and contributors are expected to adhere to the [Contributor Covenant](http://contributor-covenant.org) code of conduct.
 
 ## License
 
