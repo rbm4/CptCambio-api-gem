@@ -1,8 +1,8 @@
 # CptCambioApiWrapper
 
-Welcome to your new gem! In this directory, you'll find the files you need to be able to package up your Ruby library into a gem. Put your Ruby code in the file `lib/CptCambioApiWrapper`. To experiment with that code, run `bin/console` for an interactive prompt.
+"CptCambioApiWrapper" 
+In this gem, you'll find the files you need to be able to package up your Ruby application a fully integration with the CptCambio Exchange API.
 
-TODO: Delete this and the text above, and describe your gem
 
 ## Installation
 
@@ -21,8 +21,11 @@ Or install it yourself as:
     $ gem install CptCambioApiWrapper
 
 ## Usage
+To use this 
+Init the gem within a variable using your API keys:
 
-TODO: Write usage instructions here
+    client = CptCambioApiWrapper.init(key,secret)
+    init
 
 ## Development
 
