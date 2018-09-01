@@ -14,15 +14,9 @@ module CptCambioApiWrapper
           return self
         end
         
-        def self.instant_buy_price(currency1,currency2,buy)
-          if buy == "buy"
-              @params[:tipo] = "buy"
-          else
-              @params[:tipo] = "sell"
-          end
-          @params[:coin1] = currency1
-          @params[:coin2] = currency2
-          @method = "instant_buy_price"
+        def self.orderbook(pair)
+          @params[:pair] = pair
+          @method = "orderbook"
           doRequest
         end
         
