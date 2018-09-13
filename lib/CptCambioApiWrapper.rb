@@ -86,7 +86,7 @@ module CptCambioApiWrapper
                         "key" => key,
                         "secret" => secret,
             }
-            url = URI.parse("https://cpt-cambio-new-rbm4.c9users.io/api/#{@method}/")
+            url = URI.parse("https://www.cptcambio.com/api/#{@method}/")
             req = Net::HTTP::Post.new(url.request_uri, initheader = headers)
             message = cipher.update(@params.to_json) + cipher.final
             
